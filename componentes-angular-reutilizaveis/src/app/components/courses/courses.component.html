@@ -1,0 +1,12 @@
+<h1>Projeto utilizando tabela reutilizando em outros componentes</h1>
+
+<app-pesquisar (submitForm)="getDadosTabela($event)"></app-pesquisar>
+
+<app-table-reutilizavel [displayedColumns]="['id', 'name', 'category']"
+                        [dados]="dados"
+                        [pageSize]= 5
+                        [pageIndex]= 0
+                        [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                        [showFirstLastButtons]=true
+                        (click)="onPageChange($event)">
+</app-table-reutilizavel>

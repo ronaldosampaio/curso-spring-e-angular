@@ -1,0 +1,12 @@
+<div class="col-md-12 mb-4" >
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmitForm()">
+    <label class="form-label">Pesquisar:</label>
+      <div class="input-group text-center">
+        <input class="form-control "
+               type="text"
+               placeholder="Digite sua pesquisa!"
+               formControlName="search"/>
+        <button type="submit" class="btn btn-success">Pesquisar</button>
+      </div>
+  </form>
+</div>

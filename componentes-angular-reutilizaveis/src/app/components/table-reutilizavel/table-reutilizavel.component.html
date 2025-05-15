@@ -1,0 +1,38 @@
+<table class="mat-elevation-z8"
+       mat-table
+       [dataSource]="dataSource"
+       matSort
+       matSortDirection="desc">
+
+  @for (column of displayedColumns; track column) {
+    <ng-container [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{column}}
+      </th>
+      {{column}}
+      <td mat-cell *matCellDef="let row">
+          {{ row[column] !== null && row[column] !== "" ? row[column] : 'Vazio!' }}
+      </td>
+    </ng-container>
+  }
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+@if(!dados){
+  <table class="table table-bordered" style="margin-bottom: 0;">
+    <tr class="text-center" style="background: #faf9fe; border-bottom: #74777f">
+      <td style="font-family: Roboto, sans-serif;">Nenhuma informação encontrada!</td>
+    </tr>
+  </table>
+}
+
+<mat-paginator
+              [pageSize]="pageSize"
+              [pageIndex]="pageIndex"
+              [pageSizeOptions]="pageSizeOptions"
+              [showFirstLastButtons]="showFirstLastButtons"
+              (page)="onPageChange($event)">
+</mat-paginator>
+
+
